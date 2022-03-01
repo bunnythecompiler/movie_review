@@ -1,0 +1,18 @@
+{% extends "movie/base.html" %}
+{% block content %}
+<style>
+    body{
+        background-color: crimson;
+    }
+</style>
+    <div class="container">
+        {% for item in items %}
+            <h1>{{ item.title}}</h1>
+            <h6>Released on : {{ item.title_upload_date|date:"F d, Y" }}</h6>
+            <img src="{{ item.movie_cover.url }}">
+            <p style="margin: 2%; border:solid;">{{ item.description }}</p>
+            <button ><a href="{% url 'rate' item.id %}">RATE NOW</a></button>
+
+        {% endfor %}
+    </div>
+{% endblock content %}
